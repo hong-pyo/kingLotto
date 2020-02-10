@@ -1,1 +1,2 @@
 # kingLotto
+Android project
