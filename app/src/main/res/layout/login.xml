@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity"
+        android:orientation="vertical"
+        android:weightSum="10"
+>
+
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="496dp" tools:layout_editor_absoluteY="8dp" tools:layout_editor_absoluteX="8dp"
+            android:layout_weight="2"
+    >
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="85dp" app:srcCompat="@drawable/login"
+                android:id="@+id/imageView"/>
+
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="match_parent"
+                                                       android:layout_weight="7">
+        <com.kakao.usermgmt.LoginButton
+                android:id="@+id/btnKakaoLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp">
+
+        </com.kakao.usermgmt.LoginButton>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
