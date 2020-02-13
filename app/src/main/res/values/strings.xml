@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">kinglotto</string>
     <string name="kakao_app_key">efed666b110f04093049e1d440dd9416</string>
+    <string name="all">ALL</string>
+    <string name="one_week">Week</string>
 </resources>

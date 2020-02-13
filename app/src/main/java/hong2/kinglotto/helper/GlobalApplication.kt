@@ -22,6 +22,7 @@ class GlobalApplication : Application() {
     }
 
     companion object {
+        var isLogin : Boolean = false
         var instance: GlobalApplication? = null
     }
 }
