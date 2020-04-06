@@ -9,7 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import hong2.kinglotto.menu.Fragment1;
 import hong2.kinglotto.menu.Fragment2;
 import hong2.kinglotto.menu.Fragment3;
-import hong2.kinglotto.menu.OnTabItemSelectedListener;
+import hong2.kinglotto.linstner.OnTabItemSelectedListener;
 
 public class MainActivity extends AppCompatActivity implements OnTabItemSelectedListener {
 
@@ -30,22 +30,24 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
 
         bottomNavigation = findViewById(R.id.bottom_navigation);
-        bottomNavigation.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.tab1:
                         Toast.makeText(getApplicationContext(), "첫번째 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
-                        return;
+                        return true;
                     case R.id.tab2:
                         Toast.makeText(getApplicationContext(), "두번째 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
-                        return;
+                        return true;
                     case R.id.tab3:
                         Toast.makeText(getApplicationContext(), "세번째 탭 선택됨", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();
+                        return true;
                 }
+                return false;
             }
         });
     }

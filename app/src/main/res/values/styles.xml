@@ -9,6 +9,7 @@
     </style>
     <string-array name="switch_tabs">
         <item>@string/all</item>
-        <item>@string/one_week</item>
+        <!--<item>@string/one_week</item>
+        <item>@string/all</item>-->
     </string-array>
 </resources>
