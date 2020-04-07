@@ -68,6 +68,7 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout lottoItemLayout;
         private TextView roundTextView;
+        private TextView overWinnerDayTextView;
         private ImageView luckyImage;
         private ImageView weatherImage;
         private TextView winnerDate;
@@ -88,6 +89,7 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
 
             lottoItemLayout = itemView.findViewById(R.id.lottoItemLayout);
             roundTextView = itemView.findViewById(R.id.roundTextView);
+            overWinnerDayTextView = itemView.findViewById(R.id.overWinnerDayTextView);
             luckyImage = itemView.findViewById(R.id.luckyImage);
             weatherImage = itemView.findViewById(R.id.weatherImage);
             winnerDate = itemView.findViewById(R.id.winnerDate);
@@ -116,6 +118,25 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
         public void setItem(Lotto item) {
             roundTextView.setText(item.getRound());
             winnerDate.setText(item.getWinnerDate().toString());
+            if (item.isOverWinnerDay()) {
+                overWinnerDayTextView.setText("당첨 번호");
+                winnerNumber1.setText(String.valueOf(item.getWinnerNumbers().get(0)));
+                winnerNumber1.setVisibility(View.VISIBLE);
+                winnerNumber2.setText(String.valueOf(item.getWinnerNumbers().get(1)));
+                winnerNumber2.setVisibility(View.VISIBLE);
+                winnerNumber3.setText(String.valueOf(item.getWinnerNumbers().get(2)));
+                winnerNumber3.setVisibility(View.VISIBLE);
+                winnerNumber4.setText(String.valueOf(item.getWinnerNumbers().get(3)));
+                winnerNumber4.setVisibility(View.VISIBLE);
+                winnerNumber5.setText(String.valueOf(item.getWinnerNumbers().get(4)));
+                winnerNumber5.setVisibility(View.VISIBLE);
+                winnerNumber6.setText(String.valueOf(item.getWinnerNumbers().get(5)));
+                winnerNumber6.setVisibility(View.VISIBLE);
+                bonusNumber.setText(String.valueOf(item.getBonusNumber()));
+                bonusNumber.setVisibility(View.VISIBLE);
+            } else {
+                overWinnerDayTextView.setText("미 추첨");
+            }
         }
     }
 }

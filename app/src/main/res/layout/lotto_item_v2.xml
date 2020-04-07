@@ -74,9 +74,11 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="당첨 번호 : "
+            <TextView
+                    android:id="@+id/overWinnerDayTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="당첨 번호 : "
             />
             <RelativeLayout
                     android:layout_width="match_parent"
@@ -89,6 +91,7 @@
                         android:text="01"
                         android:layout_alignParentLeft="true"
                         android:background="@drawable/circle_test_24"
+                        android:visibility="gone"
                         android:textSize="24sp"/>
                 <TextView
                         android:id="@+id/winnerNumber2"
@@ -98,6 +101,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@+id/winnerNumber1"
                         android:background="@drawable/circle_test_24"
+                        android:visibility="gone"
                         android:textSize="24sp"/>
                 <TextView
                         android:id="@+id/winnerNumber3"
@@ -107,6 +111,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@+id/winnerNumber2"
                         android:background="@drawable/circle_test_24"
+                        android:visibility="gone"
                         android:textSize="24sp"/>
                 <TextView
                         android:id="@+id/winnerNumber4"
@@ -116,6 +121,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@+id/winnerNumber3"
                         android:background="@drawable/circle_test_24"
+                        android:visibility="gone"
                         android:textSize="24sp"/>
                 <TextView
                         android:id="@+id/winnerNumber5"
@@ -125,6 +131,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@+id/winnerNumber4"
                         android:background="@drawable/circle_test_24"
+                        android:visibility="gone"
                         android:textSize="24sp"/>
                 <TextView
                         android:id="@+id/winnerNumber6"
@@ -134,6 +141,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@+id/winnerNumber5"
                         android:background="@drawable/circle_test_24"
+                        android:visibility="gone"
                         android:textSize="24sp"/>
                 <TextView
                         android:id="@+id/bonusNumber"
@@ -143,6 +151,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@+id/winnerNumber6"
                         android:background="@drawable/circle_test_24"
+                        android:visibility="gone"
                         android:textSize="24sp"/>
                 <TextView
                         android:id="@+id/winnerCount"

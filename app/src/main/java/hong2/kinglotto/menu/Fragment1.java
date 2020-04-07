@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import hong2.kinglotto.MainActivity;
 import hong2.kinglotto.R;
 import hong2.kinglotto.linstner.OnLottoItemClickListener;
 import hong2.kinglotto.linstner.OnTabItemSelectedListener;
@@ -30,6 +31,7 @@ public class Fragment1 extends Fragment {
 
     private Context context;
     private OnTabItemSelectedListener listener;
+    private DetailListFragment detailListFragment = new DetailListFragment();
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -85,7 +87,7 @@ public class Fragment1 extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         lottoAdapter = new LottoAdapter();
-        // api 호출로 data 가져와야함. / pagable
+        // todo api 호출로 data 가져와야함. / page 구현 하기.
         List<Integer> winnerNumbers = new ArrayList<>();
         winnerNumbers.add(1);
         winnerNumbers.add(2);
@@ -95,9 +97,9 @@ public class Fragment1 extends Fragment {
         winnerNumbers.add(6);
 
 
-        lottoAdapter.addItem(new Lotto(0, "3회", null, null, LocalDate.of(2020,2,9), winnerNumbers, "6개 당첨"));
-        lottoAdapter.addItem(new Lotto(0, "2회", null, null, LocalDate.of(2020,2,9), winnerNumbers, "6개 당첨"));
-        lottoAdapter.addItem(new Lotto(0, "1회", null, null, LocalDate.of(2020,2,2), winnerNumbers, "3개 당첨"));
+        lottoAdapter.addItem(new Lotto(3, false,"3회", null, null, LocalDate.of(2020,2,16), null, 10, "6개 당첨"));
+        lottoAdapter.addItem(new Lotto(2, true,"2회", null, null, LocalDate.of(2020,2,9), winnerNumbers, 29, "6개 당첨"));
+        lottoAdapter.addItem(new Lotto(1, true,"1회", null, null, LocalDate.of(2020,2,2), winnerNumbers, 19, "3개 당첨"));
 
         recyclerView.setAdapter(lottoAdapter);
         lottoAdapter.setOnItemClickListener(new OnLottoItemClickListener() {
@@ -105,6 +107,11 @@ public class Fragment1 extends Fragment {
             public void onItemClick(LottoAdapter.ViewHolder holder, View view, int position) {
                 Lotto item = lottoAdapter.getItem(position);
                 Toast.makeText(getContext(), item.getRound() + "\n" + item.getWinnerNumbers(), Toast.LENGTH_SHORT).show();
+                // todo fragment 간 data 전송 방법 , 한번에 넘기기.
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("lotto", item);
+                detailListFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.container, detailListFragment).commit();
             }
         });
     }

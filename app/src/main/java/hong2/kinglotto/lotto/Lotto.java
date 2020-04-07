@@ -1,27 +1,48 @@
 package hong2.kinglotto.lotto;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 
-public class Lotto {
+public class Lotto implements Serializable {
     private int id;
+    private boolean overWinnerDay;
     private String round;
     private String weather;
     private String picture;
     private LocalDate winnerDate;
     private List<Integer> winnerNumbers;
+    private int bonusNumber;
     private String winnerCount;
 
-    public Lotto(int id, String round, String weather, String picture, LocalDate winnerDate, List<Integer> winnerNumbers, String winnerCount) {
+    public Lotto(int id, boolean overWinnerDay, String round, String weather, String picture, LocalDate winnerDate, List<Integer> winnerNumbers, int bonusNumber, String winnerCount) {
         this.id = id;
+        this.overWinnerDay = overWinnerDay;
         this.round = round;
         this.weather = weather;
         this.picture = picture;
         this.winnerDate = winnerDate;
         this.winnerNumbers = winnerNumbers;
+        this.bonusNumber = bonusNumber;
         this.winnerCount = winnerCount;
+    }
+
+    public int getBonusNumber() {
+        return bonusNumber;
+    }
+
+    public void setBonusNumber(int bonusNumber) {
+        this.bonusNumber = bonusNumber;
+    }
+
+    public boolean isOverWinnerDay() {
+        return overWinnerDay;
+    }
+
+    public void setOverWinnerDay(boolean overWinnerDay) {
+        this.overWinnerDay = overWinnerDay;
     }
 
     public String getRound() {

@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import hong2.kinglotto.menu.DetailListFragment;
 import hong2.kinglotto.menu.Fragment1;
 import hong2.kinglotto.menu.Fragment2;
 import hong2.kinglotto.menu.Fragment3;
