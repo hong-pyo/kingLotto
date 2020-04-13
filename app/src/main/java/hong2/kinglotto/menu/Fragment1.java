@@ -12,12 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import hong2.kinglotto.MainActivity;
 import hong2.kinglotto.R;
-import hong2.kinglotto.linstner.OnLottoItemClickListener;
+import hong2.kinglotto.linstner.OnAdapterItemClickListener;
 import hong2.kinglotto.linstner.OnTabItemSelectedListener;
-import hong2.kinglotto.lotto.Lotto;
-import hong2.kinglotto.lotto.LottoAdapter;
+import hong2.kinglotto.domain.Lotto;
+import hong2.kinglotto.adapter.LottoAdapter;
 import lib.kingja.switchbutton.SwitchMultiButton;
 
 import java.time.LocalDate;
@@ -102,7 +101,7 @@ public class Fragment1 extends Fragment {
         lottoAdapter.addItem(new Lotto(1, true,"1회", null, null, LocalDate.of(2020,2,2), winnerNumbers, 19, "3개 당첨"));
 
         recyclerView.setAdapter(lottoAdapter);
-        lottoAdapter.setOnItemClickListener(new OnLottoItemClickListener() {
+        lottoAdapter.setOnItemClickListener(new OnAdapterItemClickListener() {
             @Override
             public void onItemClick(LottoAdapter.ViewHolder holder, View view, int position) {
                 Lotto item = lottoAdapter.getItem(position);
@@ -111,7 +110,7 @@ public class Fragment1 extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("lotto", item);
                 detailListFragment.setArguments(bundle);
-                getFragmentManager().beginTransaction().replace(R.id.container, detailListFragment).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, detailListFragment).addToBackStack(null).commit();
             }
         });
     }

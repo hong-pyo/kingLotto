@@ -2,8 +2,125 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <TextView
-            android:text="HI~~~!"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout
+                android:id="@+id/detailListLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <Button
+                        android:id="@+id/qrCodeScan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_toLeftOf="@+id/todayLotto"
+                        android:background="@drawable/select_button"
+                        android:text="QR CODE"
+                        android:textColor="@android:color/white"
+                />
+
+                <Button
+                        android:id="@+id/todayLotto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/select_button"
+                        android:text="뽑기"
+                        android:textColor="@android:color/white"
+                />
+            </RelativeLayout>
+            <LinearLayout
+                    android:id="@+id/detailIsWinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingTop="20dp"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:hint="1회"
+                        android:textSize="23sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:hint="미추첨"
+                        android:paddingLeft="10dp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <TextView
+                        android:paddingTop="10dp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:textSize="23sp"
+                        android:hint="인증샷!!"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                <ImageView
+                        android:src="@drawable/back_image_1"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                />
+                <TextView
+                        android:paddingTop="10dp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:textSize="23sp"
+                        android:hint="추천 번호들"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/detailListRecyclerView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+            <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+            >
+                <TextView
+                        android:paddingTop="10dp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        android:textSize="23sp"
+                        android:hint="구매한 번호들"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/purcharseListRecyclerView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

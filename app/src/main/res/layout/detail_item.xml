@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+    <RelativeLayout
+            android:id="@+id/detailLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/luckynumbers"
+                android:paddingTop="10dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:textSize="23sp"
+                android:hint="1 2 3 4 5 6"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/winGradeTextView"
+                android:paddingTop="10dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:textSize="23sp"
+                android:paddingLeft="20dp"
+                android:hint="n등"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        
+    </RelativeLayout>
+</LinearLayout>

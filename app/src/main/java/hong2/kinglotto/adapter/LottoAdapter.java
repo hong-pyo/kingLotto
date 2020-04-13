@@ -1,6 +1,5 @@
-package hong2.kinglotto.lotto;
+package hong2.kinglotto.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import hong2.kinglotto.R;
-import hong2.kinglotto.linstner.OnLottoItemClickListener;
+import hong2.kinglotto.linstner.OnAdapterItemClickListener;
+import hong2.kinglotto.domain.Lotto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> implements OnLottoItemClickListener {
+public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> implements OnAdapterItemClickListener {
 
     private List<Lotto> items = new ArrayList<Lotto>();
-    private OnLottoItemClickListener listener;
+    private OnAdapterItemClickListener listener;
 
 
     @NonNull
@@ -32,8 +32,7 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        Lotto item= items.get(position);
-        Log.i("TED.KING this position is :", " [ "+ String.valueOf(position) + "] ");
+        Lotto item = items.get(position);
         viewHolder.setItem(item);
     }
 
@@ -54,7 +53,7 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
         return items.get(position);
     }
 
-    public void setOnItemClickListener(OnLottoItemClickListener listener) {
+    public void setOnItemClickListener(OnAdapterItemClickListener listener) {
         this.listener = listener;
     }
 
@@ -84,7 +83,7 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
         private TextView bonusNumber;
         private TextView winnerCount;
 
-        public ViewHolder(@NonNull View itemView, final OnLottoItemClickListener listener) {
+        public ViewHolder(@NonNull View itemView, final OnAdapterItemClickListener listener) {
             super(itemView);
 
             lottoItemLayout = itemView.findViewById(R.id.lottoItemLayout);

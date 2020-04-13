@@ -1,4 +1,4 @@
-package hong2.kinglotto.lotto;
+package hong2.kinglotto.domain;
 
 
 import java.io.Serializable;
