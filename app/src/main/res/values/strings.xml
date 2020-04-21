@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">kinglotto</string>
     <string name="kakao_app_key">efed666b110f04093049e1d440dd9416</string>
+    <string name="admob_app_id">ca-app-pub-1196815139606750~2702201999</string>
+    <string name="banner_ad_unit_id">ca-app-pub-1196815139606750/4987979207</string>
+    <string name="banner_ad_unit_id_for_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="all">ALL</string>
     <string name="one_week">Week</string>
 </resources>
