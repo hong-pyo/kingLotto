@@ -3,6 +3,24 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
+    <TextView
+            android:text="N 회차"
+            android:paddingTop="30dp"
+            android:textSize="36sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <ImageView
+            android:id="@+id/random_image_view"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/random_1"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     <LinearLayout
             android:id="@+id/extractView"
             android:gravity="center"

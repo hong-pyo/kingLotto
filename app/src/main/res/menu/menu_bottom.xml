@@ -15,6 +15,6 @@
             android:id="@+id/tab3"
             app:showAsAction="ifRoom"
             android:enabled="true"
-            android:icon="@drawable/graph_48"
-            android:title="통계" />
+            android:icon="@drawable/settings512"
+            android:title="설정" />
 </menu>

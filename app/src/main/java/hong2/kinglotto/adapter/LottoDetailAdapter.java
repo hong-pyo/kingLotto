@@ -78,11 +78,7 @@ public class LottoDetailAdapter extends RecyclerView.Adapter<LottoDetailAdapter.
         }
 
         public void setItem(LottoDetail lottoDetail) {
-            for (int i=0; i<lottoDetail.getWinnerNumbers().size(); i++) {
-                ImageView imageView = new ImageView(layout.getContext());
-                imageView.setImageBitmap(LottoBallHelper.lottoBall.get(lottoDetail.getWinnerNumbers().get(i) - 1));
-                layout.addView(imageView);
-            }
+            LottoBallHelper.LottoBallSet(layout, lottoDetail.getWinnerNumbers(), 0);
             gradeView.setText(!lottoDetail.isOverWinnerDay() ? "?!?" : lottoDetail.getWinGrade());
         }
     }

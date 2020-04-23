@@ -14,11 +14,13 @@ import androidx.fragment.app.Fragment;
 import hong2.kinglotto.R;
 import hong2.kinglotto.helper.LottoBallHelper;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeSet;
 
 public class Fragment2 extends Fragment {
     private LinearLayout extractView;
+    private ImageView randomImageView;
     private Button extarctButton;
 
     private Context context;
@@ -50,9 +52,11 @@ public class Fragment2 extends Fragment {
 
         final LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         extractView = rootView.findViewById(R.id.extractView);
+        randomImageView = rootView.findViewById(R.id.random_image_view);
         extractView.setLayoutParams(params);
         extractView.setOrientation(LinearLayout.HORIZONTAL);
         extarctButton = rootView.findViewById(R.id.extractButton);
+
 
         extarctButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,14 +71,9 @@ public class Fragment2 extends Fragment {
                     int random = new Random().nextInt(45) + 1;
                     set.add(random);
                 }
-
-                for (Integer i : set) {
-                    // 이미지 생성
-                    ImageView imageView = new ImageView(extractView.getContext());
-                    // 셋팅
-                    imageView.setImageBitmap(LottoBallHelper.lottoBall.get(i-1));
-                    extractView.addView(imageView);
-                }
+                randomImageView.setVisibility(View.GONE);
+                LottoBallHelper.LottoBallSet(extractView, new ArrayList<>(set), 0);
+                extarctButton.setVisibility(View.GONE);
             }
         });
     }

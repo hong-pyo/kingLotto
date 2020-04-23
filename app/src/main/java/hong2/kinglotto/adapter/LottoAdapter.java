@@ -110,11 +110,7 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
             winnerDate.setText(item.getWinnerDate().toString());
             if (item.isOverWinnerDay()) {
                 overWinnerDayTextView.setText("당첨 번호");
-                for(int i=0; i<item.getWinnerNumbers().size(); i++) {
-                    ImageView imageView = new ImageView(fragment1WinnerView.getContext());
-                    imageView.setImageBitmap(LottoBallHelper.lottoBall.get(item.getWinnerNumbers().get(i) - 1));
-                    fragment1WinnerView.addView(imageView);
-                }
+                LottoBallHelper.LottoBallSet(fragment1WinnerView, item.getWinnerNumbers(), item.getBonusNumber());
                 bonusNumber.setText(String.valueOf(item.getBonusNumber()));
                 bonusNumber.setVisibility(View.VISIBLE);
             } else {

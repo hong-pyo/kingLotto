@@ -14,7 +14,7 @@ public class Lotto implements Serializable {
     private String picture;
     private LocalDate winnerDate;
     private List<Integer> winnerNumbers;
-    private int bonusNumber;
+    private int bonusNumber = 0;
     private String winnerCount;
 
     public Lotto(int id, boolean overWinnerDay, String round, String weather, String picture, LocalDate winnerDate, List<Integer> winnerNumbers, int bonusNumber, String winnerCount) {
