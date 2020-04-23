@@ -3,12 +3,15 @@ package hong2.kinglotto.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import hong2.kinglotto.R;
 import hong2.kinglotto.domain.LottoDetail;
+import hong2.kinglotto.helper.LottoBallHelper;
 import hong2.kinglotto.linstner.OnAdapterItemClickListener;
 
 import java.util.ArrayList;
@@ -63,18 +66,23 @@ public class LottoDetailAdapter extends RecyclerView.Adapter<LottoDetailAdapter.
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private RelativeLayout detailLayout;
-        private TextView luckyNumbersView;
+        private LinearLayout layout;
         private TextView gradeView;
 
         public ViewHolder(@NonNull View itemView, final OnAdapterItemClickListener listener) {
             super(itemView);
             detailLayout = itemView.findViewById(R.id.detailLayout);
-            luckyNumbersView = itemView.findViewById(R.id.luckynumbers);
+            layout = itemView.findViewById(R.id.detail_winner_view);
             gradeView = itemView.findViewById(R.id.winGradeTextView);
+            LottoBallHelper.LottoBall(itemView.getResources(), 100);
         }
 
         public void setItem(LottoDetail lottoDetail) {
-            luckyNumbersView.setText(lottoDetail.getWinnerNumbers().toString());
+            for (int i=0; i<lottoDetail.getWinnerNumbers().size(); i++) {
+                ImageView imageView = new ImageView(layout.getContext());
+                imageView.setImageBitmap(LottoBallHelper.lottoBall.get(lottoDetail.getWinnerNumbers().get(i) - 1));
+                layout.addView(imageView);
+            }
             gradeView.setText(!lottoDetail.isOverWinnerDay() ? "?!?" : lottoDetail.getWinGrade());
         }
     }

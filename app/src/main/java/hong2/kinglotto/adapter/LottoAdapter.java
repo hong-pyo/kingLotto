@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import hong2.kinglotto.R;
+import hong2.kinglotto.helper.LottoBallHelper;
 import hong2.kinglotto.linstner.OnAdapterItemClickListener;
 import hong2.kinglotto.domain.Lotto;
 
@@ -72,13 +73,7 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
         private ImageView weatherImage;
         private TextView winnerDate;
         private ImageView userCustomPicture;
-
-        private TextView winnerNumber1;
-        private TextView winnerNumber2;
-        private TextView winnerNumber3;
-        private TextView winnerNumber4;
-        private TextView winnerNumber5;
-        private TextView winnerNumber6;
+        private LinearLayout fragment1WinnerView;
 
         private TextView bonusNumber;
         private TextView winnerCount;
@@ -93,12 +88,8 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
             weatherImage = itemView.findViewById(R.id.weatherImage);
             winnerDate = itemView.findViewById(R.id.winnerDate);
             userCustomPicture = itemView.findViewById(R.id.userCustomPicture);
-            winnerNumber1 = itemView.findViewById(R.id.winnerNumber1);
-            winnerNumber2 = itemView.findViewById(R.id.winnerNumber2);
-            winnerNumber3 = itemView.findViewById(R.id.winnerNumber3);
-            winnerNumber4 = itemView.findViewById(R.id.winnerNumber4);
-            winnerNumber5 = itemView.findViewById(R.id.winnerNumber5);
-            winnerNumber6 = itemView.findViewById(R.id.winnerNumber6);
+            fragment1WinnerView = itemView.findViewById(R.id.fragment1_winner_view);
+            LottoBallHelper.LottoBall(itemView.getResources(), 100);
 
             bonusNumber = itemView.findViewById(R.id.bonusNumber);
             winnerCount = itemView.findViewById(R.id.winnerCount);
@@ -119,18 +110,11 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder> 
             winnerDate.setText(item.getWinnerDate().toString());
             if (item.isOverWinnerDay()) {
                 overWinnerDayTextView.setText("당첨 번호");
-                winnerNumber1.setText(String.valueOf(item.getWinnerNumbers().get(0)));
-                winnerNumber1.setVisibility(View.VISIBLE);
-                winnerNumber2.setText(String.valueOf(item.getWinnerNumbers().get(1)));
-                winnerNumber2.setVisibility(View.VISIBLE);
-                winnerNumber3.setText(String.valueOf(item.getWinnerNumbers().get(2)));
-                winnerNumber3.setVisibility(View.VISIBLE);
-                winnerNumber4.setText(String.valueOf(item.getWinnerNumbers().get(3)));
-                winnerNumber4.setVisibility(View.VISIBLE);
-                winnerNumber5.setText(String.valueOf(item.getWinnerNumbers().get(4)));
-                winnerNumber5.setVisibility(View.VISIBLE);
-                winnerNumber6.setText(String.valueOf(item.getWinnerNumbers().get(5)));
-                winnerNumber6.setVisibility(View.VISIBLE);
+                for(int i=0; i<item.getWinnerNumbers().size(); i++) {
+                    ImageView imageView = new ImageView(fragment1WinnerView.getContext());
+                    imageView.setImageBitmap(LottoBallHelper.lottoBall.get(item.getWinnerNumbers().get(i) - 1));
+                    fragment1WinnerView.addView(imageView);
+                }
                 bonusNumber.setText(String.valueOf(item.getBonusNumber()));
                 bonusNumber.setVisibility(View.VISIBLE);
             } else {

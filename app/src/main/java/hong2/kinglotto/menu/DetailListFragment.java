@@ -81,34 +81,34 @@ public class DetailListFragment extends Fragment {
             }
         });
 
-        List<String> winnerNumbers = new ArrayList<>();
+        List<Integer> winnerNumbers = new ArrayList<>();
         while (winnerNumbers.size() < 6) {
             Random random = new Random();
-            int randomNumbers = random.nextInt(45);
+            int randomNumbers = random.nextInt(45) + 1;
             if (winnerNumbers.contains(randomNumbers)) {
                 continue;
             }
-            winnerNumbers.add(String.valueOf(randomNumbers));
+            winnerNumbers.add(randomNumbers);
         }
 
-        List<String> winnerNumbers2 = new ArrayList<>();
+        List<Integer> winnerNumbers2 = new ArrayList<>();
         while (winnerNumbers2.size() < 6) {
             Random random = new Random();
-            int randomNumbers = random.nextInt(45);
+            int randomNumbers = random.nextInt(45) + 1;
             if (winnerNumbers2.contains(randomNumbers)) {
                 continue;
             }
-            winnerNumbers2.add(String.valueOf(randomNumbers));
+            winnerNumbers2.add(randomNumbers);
         }
 
-        List<String> winnerNumbers3 = new ArrayList<>();
+        List<Integer> winnerNumbers3 = new ArrayList<>();
         while (winnerNumbers3.size() < 6) {
             Random random = new Random();
-            int randomNumbers = random.nextInt(45);
+            int randomNumbers = random.nextInt(45) + 1;
             if (winnerNumbers3.contains(randomNumbers)) {
                 continue;
             }
-            winnerNumbers3.add(String.valueOf(randomNumbers));
+            winnerNumbers3.add(randomNumbers);
         }
         lottoDetailAdapter.addItem(new LottoDetail(winnerNumbers, "3등", lotto.isOverWinnerDay()));
         lottoDetailAdapter.addItem(new LottoDetail(winnerNumbers2, "1등", lotto.isOverWinnerDay()));

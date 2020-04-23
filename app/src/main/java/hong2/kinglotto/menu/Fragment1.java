@@ -89,11 +89,11 @@ public class Fragment1 extends Fragment {
         // todo api 호출로 data 가져와야함. / page 구현 하기.
         List<Integer> winnerNumbers = new ArrayList<>();
         winnerNumbers.add(1);
-        winnerNumbers.add(2);
-        winnerNumbers.add(3);
-        winnerNumbers.add(4);
-        winnerNumbers.add(5);
-        winnerNumbers.add(6);
+        winnerNumbers.add(10);
+        winnerNumbers.add(20);
+        winnerNumbers.add(30);
+        winnerNumbers.add(40);
+        winnerNumbers.add(45);
 
 
         lottoAdapter.addItem(new Lotto(3, false,"3회", null, null, LocalDate.of(2020,2,16), null, 10, "6개 당첨"));

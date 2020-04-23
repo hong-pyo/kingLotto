@@ -1,9 +1,6 @@
 package hong2.kinglotto.menu;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import hong2.kinglotto.R;
+import hong2.kinglotto.helper.LottoBallHelper;
 
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeSet;
 
 public class Fragment2 extends Fragment {
     private LinearLayout extractView;
-    private ArrayList<Bitmap> lottoBall;
     private Button extarctButton;
 
     private Context context;
@@ -50,16 +46,8 @@ public class Fragment2 extends Fragment {
     }
 
     private void initUI(ViewGroup rootView) {
-        lottoBall = new ArrayList<>();
-        Resources res = getResources();
+        LottoBallHelper.LottoBall(getResources(), 150);
 
-        for(int i=0; i < 45; i++) {
-            int tempId = getResources().getIdentifier(
-                    "ball_" + (i+1), "drawable", getActivity().getPackageName()
-            );
-            Bitmap bitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(res, tempId) ,150,150, false);
-            lottoBall.add(bitmap);
-        }
         final LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         extractView = rootView.findViewById(R.id.extractView);
         extractView.setLayoutParams(params);
@@ -84,7 +72,7 @@ public class Fragment2 extends Fragment {
                     // 이미지 생성
                     ImageView imageView = new ImageView(extractView.getContext());
                     // 셋팅
-                    imageView.setImageBitmap(lottoBall.get(i-1));
+                    imageView.setImageBitmap(LottoBallHelper.lottoBall.get(i-1));
                     extractView.addView(imageView);
                 }
             }
